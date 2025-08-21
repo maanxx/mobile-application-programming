@@ -1,12 +1,13 @@
 {
-  "name": "exercise02",
+  "name": "exercise11",
   "version": "1.0.0",
   "description": "",
-  "main": "car.js",
+  "main": "index.js",
   "scripts": {
+    "dev": "nodemon",
     "build": "tsc",
-    "start:build": "node dist/car.js",
-    "dev": "nodemon"
+    "start:build": "node dist/index.js"
+
   },
   "keywords": [],
   "author": "",
