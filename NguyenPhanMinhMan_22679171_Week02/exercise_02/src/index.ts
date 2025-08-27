@@ -1,7 +1,12 @@
-function getPromise() {
-    return new Promise(resovle => {
+function getPromise(): Promise<number> {
+    return new Promise (resolve => {
         setTimeout(() => {
-            resovle(10);
-        },1000);
+            resolve(10);
+        }, 1000);
     });
 }
+
+// xuat ra so 10 sau 1s
+getPromise().then(message => {
+    console.log(message);
+})

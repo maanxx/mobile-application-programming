@@ -1,22 +1,19 @@
-function getPromise() {
-    const myPro =  new Promise((resolve, reject) => {
+function getPromise(): Promise<number> {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve("Successful");
+            const num = Math.floor(Math.random() * 10);
+
+            if (num > 2){
+                resolve(num);
+            } else {
+                reject(new Error("So <= 2"));
+            }
         }, 1000)
     });
 
-    myPro.then((data) => {
-        console.log(data);
-    })
-
-    const myPro01 =  new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve("Successful");
-        }, 1000)
-    });
-
-    myPro01.catch((error) => {
-        console.error(error.message);
-    })
 }
-
+getPromise().then((data) => {
+    console.log(data);
+}).catch((error) => {
+    console.error(error.message);
+})
