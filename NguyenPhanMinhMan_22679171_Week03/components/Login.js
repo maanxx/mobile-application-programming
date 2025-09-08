@@ -1,26 +1,11 @@
 import { View, TouchableOpacity, Text, StyleSheet, SafeAreaView, TextInput, Image } from 'react-native';
-import { RadioButton } from "react-native-paper";
 import { AntDesign } from '@expo/vector-icons';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.regText}>
-        <Text style={styles.regText}>REGISTER</Text>
-      </View>
-      <View style={styles.emailView}>
-        <TextInput
-          style={styles.emailInput}
-          placeholder='Name'
-          autoCapitalize='none'
-        />
-      </View>
-      <View style={styles.emailView}>
-        <TextInput
-          style={styles.emailInput}
-          placeholder='Phone'
-          autoCapitalize='none'
-        />
+      <View style={styles.loginView}>
+        <Text style={styles.loginText}>LOGIN</Text>
       </View>
       <View style={styles.emailView}>
         <TextInput
@@ -37,26 +22,17 @@ export default function App() {
         />
         <AntDesign name="eye" size={30} color="black" />
       </View>
-      <View style={styles.emailView}>
-        <TextInput
-          style={styles.emailInput}
-          placeholder='Birthday'
-          autoCapitalize='none'
-        />
-      </View>
-      <View style={styles.rowContainer}>
-        <RadioButton style={styles.radio} value='first'/> <Text style={{fontSize: 20}}>Male</Text>
-        <RadioButton style={styles.radio} value='second'/> <Text style={{fontSize: 20}}>Femal</Text>
-      </View> 
       <View style={styles.buttonView}>
         <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>REGISTER</Text>
+          <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
       </View>
-      
       <View style={styles.textView}>
         <Text style={styles.firstText}>When you agree to terms and conditions</Text>
+        <Text style={styles.secText}>For got you password</Text>
+        <Text style={styles.thirText}>Or login with</Text>
       </View>
+      <View style={styles.img}><Image source={require("../assets/social-icon-group.png")} style={styles.icon} /></View>
     </SafeAreaView>
   );
 }
@@ -69,17 +45,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#d8efdf',
     justifyContent: 'center',
   },
-  regText: {
+  loginView: {
+    marginBottom: 40
+  },
+  loginText: {
     fontSize: 35,
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 25
+    textAlign: 'center'
   },
   emailView: {
     flexDirection: 'row',
     backgroundColor: '#cae1d1',
     paddingHorizontal: 20,
-    paddingVertical: 18,
+    paddingVertical: 25,
     marginHorizontal: 20,
     marginVertical: 10
     
@@ -91,7 +69,7 @@ const styles = StyleSheet.create({
   buttonView: {
     backgroundColor: '#c34e3b',
     marginHorizontal: 20,
-    marginTop: 15
+    marginTop: 50
   },
   button: {
     padding: 5
@@ -106,8 +84,22 @@ const styles = StyleSheet.create({
   },
   firstText: {
     fontSize: 14,
-    fontWeight: 400,
+    fontWeight: 500,
     textAlign: 'center',
+    marginTop: 20
+  },
+  secText: {
+    color: '#5d25fa',
+    textAlign: 'center',
+    fontSize: 14,
+    fontWeight: 500,
+    marginTop: 20
+  },
+  thirText: {
+    textAlign: 'center',
+    fontSize: 14,
+    fontWeight: 500,
+    marginTop: 20
   },
   img: {
     alignItems: 'center',
@@ -118,11 +110,5 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     margin: 0,
     padding: 0
-  },
-  rowContainer: {
-    flexDirection: 'row', 
-    alignItems: 'center',
-    marginHorizontal: 35,
-
-  },
+  }
 });
