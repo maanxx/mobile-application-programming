@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-
-export default function App() {
+import { useNavigation } from '@react-navigation/native'
+export default function Starter() {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
 
@@ -28,7 +29,7 @@ export default function App() {
           justifyContent: 'center',
         }}>
         <Image
-          source={require('./assets/bike.png')}
+          source={require('../assets/bike.png')}
           style={{ width: '85%' }}
           resizeMode="contain"
         />
@@ -47,7 +48,8 @@ export default function App() {
           justifyContent: 'center',
           marginTop: 50,
         }}>
-        <TouchableOpacity style={{ alignItems: 'center' }}>
+        <TouchableOpacity style={{ alignItems: 'center' }}
+        onPress={() => navigation.navigate('BikeLists')}>
           <Text style={{ fontFamily: 'VT323', color: '#FFF' }}>
             Get Started
           </Text>
