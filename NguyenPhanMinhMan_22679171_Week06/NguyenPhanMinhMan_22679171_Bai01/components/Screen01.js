@@ -14,11 +14,11 @@ import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-export default function App() {
+export default function Screen01({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <Image
-        source={require('./assets/vs_blue.png')}
+        source={require('../assets/vs_blue.png')}
         resizeMode="contain"
         style={{ width: 112, height: 132 }}
       />
@@ -59,7 +59,7 @@ export default function App() {
       </View>
       {/* chon mau*/}
       <View style={styles.viewSelect}>
-        <TouchableOpacity style={styles.btnSelect}>
+        <TouchableOpacity style={styles.btnSelect} onPress={() => navigation.navigate('Screen02')}>
           4 MAU-CHON MAU
         </TouchableOpacity>
         <AntDesign name="right" size={20} color="black"/>

@@ -14,17 +14,19 @@ import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-export default function App() {
+export default function Screen02({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ flexDirection: 'row', margin: 0, padding: 0, width: '100%'}}>
+      <View
+        style={{ flexDirection: 'row', margin: 0, padding: 0, width: '100%' }}>
         <Image
-          source={require('./assets/vs_blue.png')}
+          source={require('../assets/vs_blue.png')}
           resizeMode="contain"
           style={{ width: 70, height: 100, marginRight: 10 }}
         />
-        <Text style={{flex: 1, paddingTop: 15}}>Dien thoai Vsmart Joy 3 {'\n'}Hang chinh hang{'\n'}Mau: do{'\n'}Cung cap boi Tiki Tradding{'\n'}1.790.000 d</Text>
-        
+        <Text style={{ flex: 1, paddingTop: 15 }}>
+          Dien thoai Vsmart Joy 3 {'\n'}Hang chinh hang
+        </Text>
       </View>
       <View style={{ backgroundColor: '#C4C4C4', width: '100%' }}>
         <Text
@@ -36,33 +38,37 @@ export default function App() {
           }}>
           Chon mau ben duoi:
         </Text>
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
           <View
             style={{
               width: 100,
               height: 100,
               backgroundColor: '#C5F1FB',
             }}></View>
-          <View
-            style={{
-              width: 100,
-              height: 100,
-              backgroundColor: '#F30D0D',
-              marginTop: 8
-            }}></View>
+          <View>
+            <TouchableOpacity
+              style={{
+                width: 100,
+                height: 100,
+                backgroundColor: '#F30D0D',
+                marginTop: 8,
+              }}
+              onPress={() => navigation.navigate('Screen03')}
+            />
+          </View>
           <View
             style={{
               width: 100,
               height: 100,
               backgroundColor: '#000000',
-              marginTop: 8
+              marginTop: 8,
             }}></View>
           <View
             style={{
               width: 100,
               height: 100,
               backgroundColor: '#234896',
-              marginTop: 8
+              marginTop: 8,
             }}></View>
         </View>
       </View>
