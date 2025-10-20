@@ -1,87 +1,108 @@
 import {
-    View,
-    Text,
-    TouchableOpacity,
-    Image,
-    TextInput,
-    StyleSheet,
-  } from "react-native";
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
+import { useRouter} from 'expo-router';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { AntDesign, FontAwesome5 } from '@expo/vector-icons';
 
-  import { Feather, AntDesign, EvilIcons } from "@expo/vector-icons";
-  import { useRouter } from "expo-router";
-  export default function Start() {
-    const router = useRouter();
+const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
+const router = useRouter();
+export default function Screen01() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <Image
+        source={require('../assets/vs_blue.png')}
+        resizeMode="contain"
+        style={{ width: 112, height: 132 }}
+      />
+      <Text style={{ fontWeight: 500, marginVertical: 10 }}>
+        Dien thoai Vsmart Joy 3 - Hang chinh hang
+      </Text>
+      {/* start*/}
 
-    return (
-      <View>
-        <View style={{ alignItems: "center", marginVertical: 70 }}>
-          <Image
-            source={require("../assets/nhatky.png")}
-            resizeMode="contain"
-            style={{ width: 150, height: 150 }}
-          />
-        </View>
-  
-        <View style={{ alignItems: "center" }}>
-          <Text
-            style={{
-              color: "#8353E2",
-              fontWeight: "bold",
-              textAlign: "center",
-              fontSize: 25,
-            }}
-          >
-            MANAGE YOUR{"\n"} TASK
-          </Text>
-        </View>
-  
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            marginVertical: 50,
-            borderWidth: 1,
-            marginHorizontal: 25,
-            borderColor: "#9095A0",
-            borderRadius: 12,
-            paddingHorizontal: 20,
-            paddingVertical: 8,
-          }}
-        >
-          <Feather name="mail" size={24} color="black" />
-          <TextInput
-            placeholder="Enter your name"
-            style={{ color: "#9095A0", paddingLeft: 12, fontSize: 15 }}
-          />
-        </View>
-  
-        <View
-          style={{
-            flexDirection: "row",
-            backgroundColor: "#00BDD6",
-            justifyContent: "center",
-            alignItems: "center",
-            marginHorizontal: 60,
-            height: 40,
-            borderRadius: 12,
-          }}
-        >
-          <TouchableOpacity onPress={() => router.push("/home")}>
-            <Text
-              style={{
-                color: "white",
-                fontWeight: "bold",
-                fontSize: 15,
-                paddingRight: 7,
-              }}
-            >
-              GET STARTED
-            </Text>
-          </TouchableOpacity>
-          <AntDesign name="arrow-right" size={18} color="white" />
-        </View>
+      <View style={styles.start}>
+        <AntDesign name="star" size={24} color="yellow" />
+        <AntDesign name="star" size={24} color="yellow" />
+        <AntDesign name="star" size={24} color="yellow" />
+        <AntDesign name="star" size={24} color="yellow" />
+        <AntDesign name="star" size={24} color="yellow" />
+        <Text style={{paddingLeft: 20}}>(Xem 828 danh gia)</Text>
       </View>
-    );
-  }
-  
-  
+      {/* price*/}
+
+      <View style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
+        <Text style={{ fontWeight: 'bold', fontSize: 16 }}>1.790.000 d</Text>
+        <Text
+          style={{
+            fontSize: 13,
+            color: 'black',
+            textDecorationLine: 'line-through',
+            paddingLeft: 10
+          }}>
+          1.790.000 d
+        </Text>
+      </View>
+
+      <View style={{ flexDirection: 'row' }}>
+        <Text style={{ color: 'red', fontWeight: 'bold', marginVertical: 10 }}>
+          O DAU RE HON HOAN TIEN{' '}
+        </Text>
+        <FontAwesome5 name="question-circle" size={24} color="black" />
+      </View>
+      <View style={styles.viewSelect}>
+        <TouchableOpacity style={styles.btnSelect} onPress={() => router.push('/screen02')}>
+          4 MAU-CHON MAU
+        </TouchableOpacity>
+        <AntDesign name="right" size={20} color="black"/>
+      </View>
+      <TouchableOpacity style={styles.btnBuy}>CHON MUA</TouchableOpacity>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFF',
+    padding: 5,
+  },
+  start: {
+    flexDirection: 'row',
+    marginBottom: 10,
+    alignItems: 'center',
+  },
+  btnBuy: {
+    backgroundColor: 'red',
+    color: '#FFF',
+    fontWeight: 'bold',
+    marginHorizontal: 15,
+    marginTop: 70,
+    marginBottom: 0,
+    borderRadius: 6,
+    padding: 10,
+    width: '85%',
+    alignItems: 'center'
+
+  },
+  viewSelect: {
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: '#C4C4C4',
+    borderRadius: 6,
+    paddingHorizontal: 20,
+    paddingVertical: 4,
+  },
+  btnSelect: {
+    justifyContent: 'center',
+    paddingRight: 90
+  },
+});
